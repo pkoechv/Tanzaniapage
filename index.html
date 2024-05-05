@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Msaada</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    form {
+        max-width: 500px;
+        margin: 20px auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        color: #666;
+    }
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    .award-container {
+        background-color: #c9f7c5;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+    .award-message {
+        background-color: #c9f7c5;
+        border: 2px solid green;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+    <div class="award-message" id="awardMessage" style="display:none;">
+        <p>HONGERA SANA <span id="userName"></span>, UMEINGIA KUNDI ZURI LA WATU WANAOPATA ZAWADI YA PESA KUTOKA KAMPUNI YA WELL-WISHERS.</p>
+        <button onclick="redeemAward()">Endelea</button>
+    </div>
+    <h1>KARIBU KWENYE
+        PROMOSHENI ZA WELL-WISHERS</h1>
+    <form action="#">
+        <div>
+            <label for="full_names">1. Jina lako kamili kama lilivyoandikwa kwenye laini yako?</label>
+            <input type="text" id="full_names" name="full_names" required>
+        </div>
+        <div>
+            <label for="phone_number">2. Weka nambari ya simu unayotumia </label>
+            <input type="text" id="phone_number" name="phone_number" required>
+        </div>
+        <div>
+            <label for="age">3. Umri wako ni miaka mingapi?</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+        <div>
+            <label for="income">4. Kiasi cha mapato yako kila mwezi (Tsh)?</label>
+            <input type="number" id="income" name="income" required>
+        </div>
+        <div>
+            <label for="goal">5. Lengo lako kuu litakuwa nini baada ya kupokea tuzo yako ya kukuza?</label>
+            <select id="goal" name="goal" required>
+                <option value="">Chagua Lengo Lako Kuu</option>
+                <option value="Anzisha biashara">1. Anzisha biashara</option>
+                <option value="Weka biashara">2. Weka biashara</option>
+                <option value="Lipa karo ya shule">3. Lipa karo ya shule</option>
+                <option value="Lipa bili">4. Lipa bili</option>
+                <option value="Lipa kodi">5. Lipa kodi</option>
+            </select>
+        </div>
+        <button type="submit">Tuma</button>
+    </form>
+
+    <script>
+        function redeemAward() {
+            // Redirect to another page
+            window.location.href = "https://a7-two.vercel.app/";
+        }
+
+        // Extract user's name and display the award message
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            const userName = document.getElementById('full_names').value;
+            const awardMessage = document.getElementById('awardMessage');
+            const userNameSpan = document.getElementById('userName');
+            userNameSpan.textContent = userName;
+            awardMessage.style.display = 'block'; // Show the award message
+        });
+    </script>
+</body>
+</html>
